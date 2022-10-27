@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
@@ -7,6 +7,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@/': path.resolve(__dirname, './src'),
+    },
+  },
+
+  test: {
+    environment: 'happy-dom',
+    coverage: {
+      provider: 'c8',
+      reporter: ['lcov', 'html'],
     },
   },
 
